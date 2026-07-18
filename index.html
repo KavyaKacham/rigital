@@ -18,8 +18,8 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="btn btn-ghost" id="navSignIn">Sign In</button>
-        <button class="btn btn-solid" id="navGetStarted">Get Started</button>
+        <a href="login.html" class="btn btn-ghost" id="navSignIn">Sign In</a>
+        <a href="index.html#registerSection" class="btn btn-solid" id="navGetStarted">Get Started</a>
         <button class="hamburger" id="hamburgerBtn">
           <span></span><span></span><span></span>
         </button>
@@ -32,14 +32,14 @@
     <div class="hero-dark-inner">
       <h1>Log in to Rigitaldemo</h1>
       <p>Manage your store, inventory, products, orders, and more online or on the go in the <a href="#">Rigitaldemo app</a>.</p>
-      <button class="btn btn-white-pill" id="heroLoginBtn">Log in</button>
+      <a href="login.html" class="btn btn-white-pill" id="heroLoginBtn">Log in</a>
 
       <div class="new-card">
         <div>
           <h3>New to Rigitaldemo?</h3>
           <p>Start free then enjoy full access to every tool.</p>
         </div>
-        <button class="btn btn-outline-pill" id="heroStartBtn">Start for free</button>
+        <a href="index.html#registerSection" class="btn btn-outline-pill" id="heroStartBtn">Start for free</a>
       </div>
     </div>
   </section>
@@ -156,29 +156,6 @@
   <footer>
     Rigitaldemo, 2026 © All rights reserved
   </footer>
-
-  <!-- ================= LOGIN MODAL ================= -->
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal-card">
-      <button class="modal-close" id="closeModal" aria-label="Close">&times;</button>
-      <h2>Log in to Rigitaldemo</h2>
-      <p class="modal-subtitle">Enter your details to continue</p>
-
-      <form id="loginForm">
-        <div class="field">
-          <label for="loginEmail">Email</label>
-          <input type="email" id="loginEmail" placeholder="you@example.com" required>
-        </div>
-        <div class="field">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" placeholder="Enter your password" required minlength="6">
-        </div>
-        <button type="submit" class="submit-btn">Log in</button>
-      </form>
-
-      <p class="modal-footer-text">New to Rigitaldemo? <a href="#" id="switchToSignup">Create an account</a></p>
-    </div>
-  </div>
 
   <!-- EmailJS SDK: sends the confirmation email after registration -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
