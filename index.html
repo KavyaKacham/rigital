@@ -11,15 +11,15 @@
   <!-- ================= HEADER ================= -->
   <header>
     <div class="nav-wrap">
-      <div class="logo">Rigital<span>demo</span></div>
+      <a href="index.html" class="logo">Rigital<span>demo</span></a>
       <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#registerSection">Blog</a></li>
+        <li><a href="index.html#registerSection">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="login.html" class="btn btn-ghost" id="navSignIn">Sign In</a>
-        <a href="index.html#registerSection" class="btn btn-solid" id="navGetStarted">Get Started</a>
+        <a href="login.html" class="btn btn-ghost">Sign In</a>
+        <a href="index.html#registerSection" class="btn btn-solid">Get Started</a>
         <button class="hamburger" id="hamburgerBtn">
           <span></span><span></span><span></span>
         </button>
@@ -31,15 +31,15 @@
   <section class="hero-dark">
     <div class="hero-dark-inner">
       <h1>Log in to Rigitaldemo</h1>
-      <p>Manage your store, inventory, products, orders, and more online or on the go in the <a href="#">Rigitaldemo app</a>.</p>
-      <a href="login.html" class="btn btn-white-pill" id="heroLoginBtn">Log in</a>
+      <p>Manage your store, inventory, products, orders, and more online or on the go in the Rigitaldemo app.</p>
+      <a href="login.html" class="btn btn-white-pill">Log in</a>
 
       <div class="new-card">
         <div>
           <h3>New to Rigitaldemo?</h3>
           <p>Start free then enjoy full access to every tool.</p>
         </div>
-        <a href="index.html#registerSection" class="btn btn-outline-pill" id="heroStartBtn">Start for free</a>
+        <a href="index.html#registerSection" class="btn btn-outline-pill">Start for free</a>
       </div>
     </div>
   </section>
@@ -139,9 +139,11 @@
 
     <div class="divider">or continue with</div>
     <div class="social-row">
-      <button class="social-btn">🔵 Google</button>
-      <button class="social-btn">📸 Instagram</button>
+      <button type="button" class="social-btn">🔵 Google</button>
+      <button type="button" class="social-btn">📸 Instagram</button>
     </div>
+
+    <p class="form-footer-text">Already have an account? <a href="login.html">Log in</a></p>
   </section>
 
   <!-- ================= APP DOWNLOAD ================= -->
@@ -157,8 +159,6 @@
     Rigitaldemo, 2026 © All rights reserved
   </footer>
 
-  <!-- EmailJS SDK: sends the confirmation email after registration -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

@@ -330,3 +330,15 @@ footer{
   .slide h3{ font-size: 1.25rem; }
   .row-2{ grid-template-columns: 1fr; }
 }
+
+/* ---------- SUCCESS PAGE ---------- */
+.success-page{
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-icon{
+  font-size: 3rem;
+  margin-bottom: 16px;
+}

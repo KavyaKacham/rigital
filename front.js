@@ -1,10 +1,11 @@
-/* ---------------- SLIDER LOGIC ---------------- */
+/* ---------------- SLIDER LOGIC (only runs if a slider exists on this page) ---------------- */
 const slides = document.querySelectorAll(".slide");
 const dotsWrap = document.getElementById("sliderDots");
-let current = 0;
-let autoSlide;
 
 if (slides.length && dotsWrap) {
+  let current = 0;
+  let autoSlide;
+
   slides.forEach((_, i) => {
     const dot = document.createElement("div");
     dot.classList.add("dot");
@@ -30,14 +31,10 @@ if (slides.length && dotsWrap) {
     goToSlide((current - 1 + slides.length) % slides.length);
   }
 
-  document.getElementById("nextBtn").addEventListener("click", () => {
-    nextSlide();
-    resetAutoSlide();
-  });
-  document.getElementById("prevBtn").addEventListener("click", () => {
-    prevSlide();
-    resetAutoSlide();
-  });
+  const nextBtn = document.getElementById("nextBtn");
+  const prevBtn = document.getElementById("prevBtn");
+  if (nextBtn) nextBtn.addEventListener("click", () => { nextSlide(); resetAutoSlide(); });
+  if (prevBtn) prevBtn.addEventListener("click", () => { prevSlide(); resetAutoSlide(); });
 
   function resetAutoSlide() {
     clearInterval(autoSlide);
@@ -46,7 +43,7 @@ if (slides.length && dotsWrap) {
   resetAutoSlide();
 }
 
-/* ---------------- MOBILE MENU ---------------- */
+/* ---------------- MOBILE MENU (only runs if the hamburger exists) ---------------- */
 const hamburgerBtn = document.getElementById("hamburgerBtn");
 if (hamburgerBtn) {
   hamburgerBtn.addEventListener("click", () => {
@@ -54,94 +51,35 @@ if (hamburgerBtn) {
   });
 }
 
-/* ---------------- GET STARTED -> SCROLL TO REGISTRATION ---------------- */
-// Works from any page: on index.html it scrolls down; on other pages
-// (like login.html) the browser first navigates to index.html#registerSection.
-function goToRegister(e) {
-  const registerSection = document.getElementById("registerSection");
-  if (registerSection) {
-    e.preventDefault();
-    registerSection.scrollIntoView({ behavior: "smooth" });
-  }
-  // if registerSection doesn't exist on this page, the href="index.html#registerSection"
-  // fallback on the element itself will just navigate normally
-}
-
-const navGetStarted = document.getElementById("navGetStarted");
-if (navGetStarted) navGetStarted.addEventListener("click", goToRegister);
-
-const heroStartBtn = document.getElementById("heroStartBtn");
-if (heroStartBtn) heroStartBtn.addEventListener("click", goToRegister);
-
-/* ---------------- REGISTRATION FORM: sends a confirmation email ---------------- */
+/* ---------------- REGISTRATION FORM (only runs on index.html) ---------------- */
 const registerForm = document.getElementById("registerForm");
 if (registerForm) {
   registerForm.addEventListener("submit", function (e) {
     e.preventDefault();
-
-    const first = document.getElementById("firstName").value;
-    const last = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("phone").value;
-    const submitBtn = this.querySelector(".submit-btn");
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Creating account...";
-
-    trySendConfirmationEmail(first, last, email, phone)
-      .then(() => {
-        alert("Welcome, " + first + "! A confirmation email is on its way to " + email + ".");
-      })
-      .catch((error) => {
-        console.error("Email send failed:", error);
-        alert("Account created for " + first + ", but the confirmation email couldn't be sent yet. Finish the EmailJS setup in script.js to enable it.");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Create Account";
-        registerForm.reset();
-      });
+    const first = document.getElementById("firstName").value.trim();
+    // Send the name to success.html via the URL so it can show a personalized message.
+    window.location.href = "success.html?name=" + encodeURIComponent(first);
   });
 }
 
-/* ---------------- EMAILJS SETUP (isolated so it can never block other buttons) ---------------- */
-// 1. Create a free account at https://www.emailjs.com
-// 2. Add an Email Service (e.g. Gmail) -> copy its Service ID below
-// 3. Create an Email Template -> copy its Template ID below
-// 4. Go to Account > General -> copy your Public Key below
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-
-function trySendConfirmationEmail(first, last, email, phone) {
-  const notConfigured =
-    EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" ||
-    EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
-    EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID";
-
-  if (notConfigured || typeof emailjs === "undefined") {
-    return Promise.reject(new Error("EmailJS is not configured yet."));
-  }
-
-  try {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-    return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      to_name: first + " " + last,
-      to_email: email,
-      phone: phone,
-    });
-  } catch (err) {
-    return Promise.reject(err);
-  }
-}
-
-/* ---------------- LOGIN FORM (on login.html): demo only, no backend ---------------- */
+/* ---------------- LOGIN FORM (only runs on login.html) ---------------- */
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
-    const email = document.getElementById("loginEmail").value;
-    alert("Logged in as " + email + " (demo only, connect a real backend for actual authentication).");
-    this.reset();
+    // Demo only: no real backend, so this just takes the user back to the homepage.
+    window.location.href = "index.html";
   });
+}
+
+/* ---------------- SUCCESS PAGE PERSONALIZATION (only runs on success.html) ---------------- */
+const successHeading = document.getElementById("successHeading");
+if (successHeading) {
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  if (name) {
+    successHeading.textContent = "Welcome, " + name + "!";
+    document.getElementById("successMessage").textContent =
+      "Your Rigitaldemo account has been created successfully.";
+  }
 }
