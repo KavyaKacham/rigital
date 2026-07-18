@@ -83,3 +83,17 @@ if (successHeading) {
       "Your Rigitaldemo account has been created successfully.";
   }
 }
+
+/* ---------------- SOCIAL LOGIN PLACEHOLDERS (Google / Instagram) ---------------- */
+// These need a real backend (OAuth client ID + server-side token exchange) to actually work.
+// For now they show a clear placeholder message instead of faking a login screen.
+document.querySelectorAll(".social-google").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    alert("Google sign-in will be connected here once the backend is set up.");
+  });
+});
+document.querySelectorAll(".social-instagram").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    alert("Instagram sign-in will be connected here once the backend is set up.");
+  });
+});
