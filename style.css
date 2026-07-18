@@ -23,7 +23,6 @@ a{ text-decoration:none; color:inherit; }
 ul{ list-style:none; }
 img{ max-width:100%; display:block; }
 
-/* ---------- HEADER ---------- */
 header{
   background: var(--surface);
   border-bottom: 1px solid var(--line);
@@ -74,7 +73,6 @@ header{
 }
 .hamburger span{ width: 24px; height: 2px; background: var(--text); }
 
-/* ---------- HERO (dark login-style, Shopify-inspired) ---------- */
 .hero-dark{
   background:
     radial-gradient(circle at 30% 20%, rgba(31,199,166,0.18) 0%, transparent 45%),
@@ -150,7 +148,6 @@ header{
   .new-card{ flex-direction: column; text-align:center; }
 }
 
-/* ---------- SLIDER ---------- */
 .slider{
   position: relative;
   max-width: 1000px;
@@ -193,7 +190,6 @@ header{
 .arrow-left{ left: 14px; }
 .arrow-right{ right: 14px; }
 
-/* ---------- FEATURE ROW ---------- */
 .feature-row{
   max-width: 1200px;
   margin: 0 auto 60px;
@@ -220,7 +216,6 @@ header{
 .feature-item h4{ font-size: 0.95rem; margin-bottom: 4px; color: var(--text); }
 .feature-item p{ font-size: 0.8rem; color: var(--gray); }
 
-/* ---------- CTA CARDS ---------- */
 .cta-section{
   max-width: 1200px;
   margin: 0 auto 60px;
@@ -252,7 +247,6 @@ header{
 .cta-card h3{ font-size: 1.05rem; margin-bottom: 6px; color: var(--text); }
 .cta-card p{ font-size: 0.85rem; color: var(--gray); }
 
-/* ---------- REGISTRATION FORM / LOGIN FORM (shared) ---------- */
 .form-section{
   max-width: 480px;
   margin: 60px auto;
@@ -302,7 +296,6 @@ header{
 .form-footer-text{ text-align:center; font-size: 0.85rem; color: var(--gray); margin-top: 18px; }
 .form-footer-text a{ color: var(--indigo); font-weight: 600; }
 
-/* ---------- APP / FOOTER ---------- */
 .app-section{
   background: var(--surface); color: var(--text); padding: 34px 20px; text-align:center;
   border-top: 1px solid var(--line);

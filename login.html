@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
   <header>
     <div class="nav-wrap">
       <a href="index.html" class="logo">Rigital<span>demo</span></a>
@@ -26,7 +25,6 @@
     </div>
   </header>
 
-  <!-- ================= LOGIN FORM ================= -->
   <section class="form-section">
     <h2>Log in to Rigitaldemo</h2>
     <p class="form-subtitle">Enter your details to continue</p>
@@ -57,7 +55,6 @@
   </footer>
 
     <script>
-  /* ---------------- SLIDER LOGIC (only runs if a slider exists on this page) ---------------- */
   const slides = document.querySelectorAll(".slide");
   const dotsWrap = document.getElementById("sliderDots");
   
@@ -102,7 +99,6 @@
     resetAutoSlide();
   }
   
-  /* ---------------- MOBILE MENU (only runs if the hamburger exists) ---------------- */
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   if (hamburgerBtn) {
     hamburgerBtn.addEventListener("click", () => {
@@ -110,7 +106,6 @@
     });
   }
   
-  /* ---------------- REGISTRATION FORM (only runs on index.html) ---------------- */
   const registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.addEventListener("submit", function (e) {
@@ -121,7 +116,6 @@
     });
   }
   
-  /* ---------------- LOGIN FORM (only runs on login.html) ---------------- */
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
@@ -131,7 +125,6 @@
     });
   }
   
-  /* ---------------- SUCCESS PAGE PERSONALIZATION (only runs on success.html) ---------------- */
   const successHeading = document.getElementById("successHeading");
   if (successHeading) {
     const params = new URLSearchParams(window.location.search);
@@ -143,9 +136,7 @@
     }
   }
   
-  /* ---------------- SOCIAL LOGIN PLACEHOLDERS (Google / Instagram) ---------------- */
-  // These need a real backend (OAuth client ID + server-side token exchange) to actually work.
-  // For now they show a clear placeholder message instead of faking a login screen.
+  
   document.querySelectorAll(".social-google").forEach((btn) => {
     btn.addEventListener("click", () => {
       alert("Google sign-in will be connected here once the backend is set up.");

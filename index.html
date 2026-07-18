@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- ================= HEADER ================= -->
   <header>
     <div class="nav-wrap">
       <a href="index.html" class="logo">Rigital<span>demo</span></a>
@@ -27,7 +26,6 @@
     </div>
   </header>
 
-  <!-- ================= HERO (dark login-style) ================= -->
   <section class="hero-dark">
     <div class="hero-dark-inner">
       <h1>Log in to Rigitaldemo</h1>
@@ -44,7 +42,6 @@
     </div>
   </section>
 
-  <!-- ================= SLIDER ================= -->
   <div class="slider" id="slider">
     <div class="slide active">
       <h3>Create Your Digital Identity</h3>
@@ -63,7 +60,6 @@
     <div class="slider-dots" id="sliderDots"></div>
   </div>
 
-  <!-- ================= FEATURE ICON ROW ================= -->
   <section class="feature-row">
     <div class="feature-item">
       <div class="icon">🪪</div>
@@ -87,7 +83,6 @@
     </div>
   </section>
 
-  <!-- ================= CTA / HOW IT WORKS ================= -->
   <section class="cta-section">
     <h2>How Rigitaldemo Works</h2>
     <div class="cta-grid">
@@ -109,7 +104,6 @@
     </div>
   </section>
 
-  <!-- ================= REGISTRATION FORM ================= -->
   <section class="form-section" id="registerSection">
     <h2>Create Your Account</h2>
     <p class="form-subtitle">Start your free trial, no credit card required</p>
@@ -150,7 +144,6 @@
     <p class="form-footer-text">Already have an account? <a href="login.html">Log in</a></p>
   </section>
 
-  <!-- ================= APP DOWNLOAD ================= -->
   <section class="app-section">
     <h3>Take Rigitaldemo with you</h3>
     <div class="app-icons">
@@ -164,7 +157,6 @@
   </footer>
 
     <script>
-  /* ---------------- SLIDER LOGIC (only runs if a slider exists on this page) ---------------- */
   const slides = document.querySelectorAll(".slide");
   const dotsWrap = document.getElementById("sliderDots");
   
@@ -209,7 +201,6 @@
     resetAutoSlide();
   }
   
-  /* ---------------- MOBILE MENU (only runs if the hamburger exists) ---------------- */
   const hamburgerBtn = document.getElementById("hamburgerBtn");
   if (hamburgerBtn) {
     hamburgerBtn.addEventListener("click", () => {
@@ -217,7 +208,6 @@
     });
   }
   
-  /* ---------------- REGISTRATION FORM (only runs on index.html) ---------------- */
   const registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.addEventListener("submit", function (e) {
@@ -228,7 +218,6 @@
     });
   }
   
-  /* ---------------- LOGIN FORM (only runs on login.html) ---------------- */
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", function (e) {
@@ -238,7 +227,6 @@
     });
   }
   
-  /* ---------------- SUCCESS PAGE PERSONALIZATION (only runs on success.html) ---------------- */
   const successHeading = document.getElementById("successHeading");
   if (successHeading) {
     const params = new URLSearchParams(window.location.search);
@@ -250,9 +238,7 @@
     }
   }
   
-  /* ---------------- SOCIAL LOGIN PLACEHOLDERS (Google / Instagram) ---------------- */
-  // These need a real backend (OAuth client ID + server-side token exchange) to actually work.
-  // For now they show a clear placeholder message instead of faking a login screen.
+  
   document.querySelectorAll(".social-google").forEach((btn) => {
     btn.addEventListener("click", () => {
       alert("Google sign-in will be connected here once the backend is set up.");
