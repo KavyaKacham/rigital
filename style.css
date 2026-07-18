@@ -68,38 +68,78 @@ header{
 }
 .hamburger span{ width: 24px; height: 2px; background: var(--ink); }
 
-/* ---------- HERO ---------- */
-.hero{
-  max-width: 1200px;
+/* ---------- HERO (dark login-style, Shopify-inspired) ---------- */
+.hero-dark{
+  background:
+    radial-gradient(circle at 30% 20%, #1a5c52 0%, transparent 45%),
+    radial-gradient(circle at 75% 60%, #2e2560 0%, transparent 50%),
+    var(--ink);
+  color: #fff;
+  padding: 70px 20px 60px;
+  text-align: center;
+}
+.hero-dark-inner{
+  max-width: 720px;
   margin: 0 auto;
-  padding: 60px 20px 30px;
-  text-align:center;
 }
-.eyebrow{
-  display:inline-block;
-  background: #EEEBFF;
-  color: var(--indigo);
-  font-size: 0.75rem;
+.hero-dark h1{
+  font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
-.hero h1{
-  font-size: 2.6rem;
-  max-width: 760px;
-  margin: 0 auto 16px;
-}
-.hero h1 span{ color: var(--indigo); }
-.hero p{
-  max-width: 560px;
-  margin: 0 auto 26px;
-  color: var(--gray);
+.hero-dark p{
+  color: rgba(255,255,255,0.75);
   font-size: 1.05rem;
+  margin-bottom: 32px;
 }
-.hero-btns{
-  display:flex; gap: 14px; justify-content:center; margin-bottom: 40px;
+.hero-dark p a{
+  color: #fff;
+  text-decoration: underline;
+}
+.btn-white-pill{
+  background: #fff;
+  color: var(--ink);
+  padding: 14px 40px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.btn-white-pill:hover{ background: #eee; }
+
+.new-card{
+  margin-top: 46px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+}
+.new-card h3{ font-size: 1.1rem; margin-bottom: 4px; }
+.new-card p{ font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 0; }
+.btn-outline-pill{
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.2s ease;
+}
+.btn-outline-pill:hover{ background: rgba(255,255,255,0.1); }
+
+@media (max-width: 600px){
+  .hero-dark h1{ font-size: 2rem; }
+  .new-card{ flex-direction: column; text-align:center; }
 }
 
 /* ---------- SLIDER ---------- */
@@ -277,3 +317,41 @@ footer{
   .row-2{ grid-template-columns: 1fr; }
   .hero-btns{ flex-direction:column; align-items:center; }
 }
+
+/* ---------- LOGIN MODAL ---------- */
+.modal-overlay{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20,19,43,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.modal-overlay.open{ display: flex; }
+
+.modal-card{
+  background:#fff;
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 380px;
+  width: 100%;
+  position: relative;
+}
+.modal-close{
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--gray);
+  line-height: 1;
+}
+.modal-close:hover{ color: var(--ink); }
+
+.modal-card h2{ text-align:center; margin-bottom: 6px; font-size: 1.3rem; }
+.modal-subtitle{ text-align:center; color: var(--gray); font-size: 0.85rem; margin-bottom: 20px; }
+.modal-footer-text{ text-align:center; font-size: 0.85rem; color: var(--gray); margin-top: 16px; }
+.modal-footer-text a{ color: var(--indigo); font-weight: 600; }
